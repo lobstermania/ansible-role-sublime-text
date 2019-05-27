@@ -1,0 +1,24 @@
+---
+
+- name: Install requirements
+  apt:
+    name:
+      - apt-transport-https
+    state: present
+
+- name: Add apt-key
+  apt_key:
+    url: "{{ sublime_text_apt_key }}"
+    state: present
+
+- name: Install apt repo
+  apt_repository:
+    repo: "deb {{ sublime_text_apt_repo }}/ apt/{{ sublime_text_channel }}/"
+    state: present
+
+- name: Install sublime-text
+  apt:
+    name:
+      - sublime-text
+    state: present
+    update_cache: yes

@@ -1,0 +1,20 @@
+---
+
+- name: Install RPM key
+  rpm_key:
+    key: "{{ sublime_text_rpm_key }}"
+    state: present
+
+- name: Install yum repo
+  yum_repository:
+    name: sublime-text
+    description: "Sublime Text"
+    baseurl: "{{ sublime_text_rpm_repo }}"
+    gpgkey: "{{ sublime_text_rpm_key }}"
+    gpgcheck: true
+
+- name: Install sublime
+  yum:
+    name:
+      - sublime-text
+    state: present
