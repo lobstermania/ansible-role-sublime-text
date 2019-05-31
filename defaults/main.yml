@@ -2,6 +2,7 @@
 # defaults file for ansible-role-sublime-text
 
 sublime_text_channel: stable
+
 # Apt
 sublime_text_apt_key: https://download.sublimetext.com/sublimehq-pub.gpg
 sublime_text_apt_repo: https://download.sublimetext.com
